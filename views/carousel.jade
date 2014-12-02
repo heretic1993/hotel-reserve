@@ -1,0 +1,59 @@
+mixin indicator(slideTo)
+  if slideTo===0
+    li(data-target="#"+attributes.id,data-slide-to=slideTo).active
+  else
+    li(data-target="#"+attributes.id,data-slide-to=slideTo)
+
+mixin indicators(count)
+  ol.carousel-indicators
+    - var i=0;
+    while i<count
+      +indicator(i++)&attributes(attributes)
+
+mixin item(src,alt,caption)
+  .item&attributes(attributes)
+    img.img-responsive(data-src="holder.js/1305x400/#777:#555/textmode:exact",src=src,alt=alt).img-responsive
+    .carousel-caption
+      !{caption}
+
+
+mixin inner(args)
+  .carousel-inner(role="listbox")
+    - var i=0;
+    while i<args.item.length
+      if i===0
+        +item(args.item[i].src,args.item[i].alt,args.item[i].caption).active
+      else
+        +item(args.item[i].src,args.item[i].alt,args.item[i].caption)
+      - i++;
+
+mixin carousel(args)
+  .carousel.slide(data-ride="carousel")&attributes(attributes)
+    +indicators(args.item.length)&attributes(attributes)
+    +inner(args)
+    a.left.carousel-control(href="#"+attributes.id,role="button",data-slide="prev")
+      span.glyphicon.glyphicon-chevron-left
+      span.sr-only Previous
+    a.right.carousel-control(href="#"+attributes.id,role="button",data-slide="next")
+      span.glyphicon.glyphicon-chevron-right
+      span.sr-only Next
+
++carousel({
+    "item":[{
+    "src":"./images/carousel/1.jpg",
+    "alt":"图片",
+    "caption":"<h1>让心灵去旅行</h1>"
+    },{
+    "src":"./images/carousel/2.jpg",
+    "alt":"<h5>夕阳西下</h5>",
+    "caption":"<h1>旅行需要一个港湾</h1>"
+    },{
+    "src":"./images/carousel/3.jpg",
+    "alt":"图片3",
+    "caption":"<h1>让我们给你旅行中的家</h1>"
+    }
+    ]
+    })(id="homepage-carousel")
+
+
+//- bug: .list class="list list active"

@@ -1,0 +1,11 @@
+mixin item(image,name,introduction,id)
+  .col-sm-6.col-md-4
+    .thumbnail
+      img(data-src="holder.js/380x250" alt="image" src=image)
+      .caption
+        h3 !{name}
+        .row
+          p.col-md-offset-1 !{introduction}
+        .row
+          a.col-md-3.col-md-offset-2(href="#" class="btn btn-primary" role="button") 立即预订
+          a.col-md-3.col-md-offset-1(href="hotel/details/"+id class="btn btn-default" role="button") 查看详情

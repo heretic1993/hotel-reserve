@@ -1,0 +1,13 @@
+ul.nav.navbar-nav.navbar-right
+  if username!==undefined
+    li
+      a 欢迎您 #{username}!
+    li
+      a(href="#") 个人中心
+    li
+      a(href="/logout") 退出
+  else
+    li
+      a(href="/login") 登入
+    li
+      a(href="/signup") 注册

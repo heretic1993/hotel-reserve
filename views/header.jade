@@ -1,0 +1,10 @@
+//- 	header.jade
+nav.navbar-default(role="navigation")
+  .container.fluid
+    .navbar-header
+      a.navbar-brand(href='/') logo
+        img.navbar-brand(src="/images/logo.png")
+      span.sr-only Navigation
+    .collapse.navbar-collapse
+      include ./navi.jade
+      include ./status.jade

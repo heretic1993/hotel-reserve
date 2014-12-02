@@ -1,0 +1,7 @@
+include rcmd-item.jade
+.container
+  .row
+    -for(var i in hotelInfo){
+      -console.log(hotelInfo[i])
+      +item(hotelInfo[i].main_image,hotelInfo[i].name,hotelInfo[i].brief_intro,hotelInfo[i]._id)
+    -}

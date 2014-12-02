@@ -1,0 +1,29 @@
+{
+  "name": "hotel-reserve",
+  "version": "0.0.0",
+  "authors": [
+    "heretic1993 <wuxingfang@gmail.com>"
+  ],
+  "description": "an hotel reservation management system.",
+  "main": "app.js",
+  "keywords": [
+    "node",
+    "hotel",
+    "system"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.0",
+    "holderjs": "~2.4.1",
+    "jquery.lazyload": "~1.9.3",
+    "jquery-md5": "*"
+  }
+}

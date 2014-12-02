@@ -1,0 +1,31 @@
+extends ../layout
+
+mixin comment(commentArray)
+  -for(var i in commentArray){
+    .row
+      .col-lg-3.col-md-3 !{commentArray[i].username}
+      .col-md-6.col-lg-6.pull-right !{commentArray[i].date}
+    .row
+      .col-lg-12.col-md-12 !{commentArray[i].content}
+  -}
+
+
+block content
+  .container
+    .row
+      .col-xs-12.col-sm-12.col-md-6.col-lg-6
+        img(data-src="holder.js/380x250" alt="image" src=hotel.main_image)
+      .col-xs-0.col-sm-0.col-md-6.col-lg-6
+        h1.label-default !{hotel.name}
+        p !{hotel.brief_intro}
+    .row
+      .col-md-12.col-lg-12
+        div
+          h1 Markdown.md lays in these area!
+          p.
+            酒店详情！！
+    .row
+      .col-md-12.col-lg-12
+        div
+          h1 评价详情
+          +comment(hotel.comment)

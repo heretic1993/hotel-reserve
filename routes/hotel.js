@@ -1,0 +1,57 @@
+var express = require('express');
+var hotel_routes = express.Router();
+var auth = require('../middlewares/auth');
+var Hotel = require('../schemas').Hotel;
+var API=require('../api');
+
+hotel_routes.get('/', function(req, res, next) {
+	next();
+
+})
+
+hotel_routes.get('/details', function(req, res, next) {
+	next();
+})
+
+hotel_routes.get('/details/:id', function(req, res) {
+	Hotel.findById(req.params.id, 'name main_image brief_intro comment', function(err, hotel) {
+		if(err) throw err;
+		res.render('hotel/details', {
+			username: req.session.username,
+			hotel: hotel
+		});
+
+	})
+
+});
+
+
+hotel_routes.get('/login', function(req, res, next) {
+	if (req.session.err) {
+		var msg = req.session.err;
+		req.session.err = null;
+		res.render('hotel/hotelLogin', {
+			message: msg
+		});
+
+	} else {
+		res.render('hotel/hotelLogin');
+	}
+});
+
+hotel_routes.get('/signup', function(req, res) {
+	if (req.session.username) {
+		res.redirect('/');
+	} else {
+		res.render('hotel/hotelSignup');
+	}
+})
+hotel_routes.post('/signup', API.hotelSignUp);
+
+hotel_routes.post('/login', auth.hotelAuth);
+
+hotel_routes.get('/fetchHotelInfo/:id',API.fetchHotelInfo);
+hotel_routes.get('/fetchAllHotelsInfo',API.fetchAllHotelsInfo);
+hotel_routes.get('/findHotel',API.findHotel);
+
+module.exports = hotel_routes;

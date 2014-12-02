@@ -1,0 +1,15 @@
+//searchBar.jade
+.container
+  h3 搜索酒店
+  form(role='form' method='get' action='hotel/findHotel')
+    .form-group
+      .row
+        .col-md-2
+          label(for='searchType') 搜索类型:
+          select(name='searchType')
+            option(value='name') 酒店名
+            option(value='keywords') 关键字
+            option(value='area') 地区
+        .col-md-6.col-lg-8
+          input(type='text' name='keywords').form#keywords
+          button(type='submit').btn.btn-default#submit_btn 提交

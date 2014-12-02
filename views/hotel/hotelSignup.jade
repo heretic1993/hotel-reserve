@@ -1,0 +1,32 @@
+//hotelSignup.jade
+include ../head.jade
+script(src='/javascripts/jquery-md5/jquery.md5.js')
+script.
+  $(function(){
+    $("#submit_btn").on("click",function(){
+      if($("#password").val()===$("#password_confirm").val()){
+      $("#password").val($.md5($("#password").val()))
+      }
+    else{
+      $("#notice").text("两次输入密码不相同");
+      $(".password").addClass("has-warning");
+      $("#password_confirm").text();
+    }
+      });
+    });
+
+h1 Hotel注册
+div
+  form(role='form' method='post' action='/hotel/signup')
+    div.form-group
+      label(for='username') 用户名
+      input(type='text' name='username').form-control#username
+    div.form-group.password
+      label(for='password') 密码
+      input(type='password' name='password').form-control#password
+    div.form-group.password
+      label(for='password_confirm') 确认密码
+      input(type='password').form-control#password_confirm
+      label.label-warning#notice
+    button(type='submit').btn.btn-default#submit_btn 提交
+

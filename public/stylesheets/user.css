@@ -1,0 +1,150 @@
+﻿
+.dg_header {
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    border-bottom: 1px #ccc solid;
+}
+
+.dg_img {
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin-left: 10px;;
+}
+
+.dg_user {
+    padding: 20px;
+    border-right: 1px #ccc solid;
+    font-size: 28px;
+    font-weight: 700;
+    color: #3EA0D1;
+    float: left;
+}
+
+.dg_off {
+    float: left;
+    height: 28px;
+    width: 80px;
+    margin: 25px 0 0 20px;
+    background: url(../img/breakout.png) center no-repeat;
+}
+
+.dg_on {
+    float: left;
+    height: 28px;
+    width: 80px;
+    margin: 25px 0 0 20px;
+    background: url(../img/startup.png) center no-repeat;
+}
+
+.dg_mem {
+    float: right;
+    margin-right: 20px;
+    padding: 5px 20px;
+    border-radius: 3px;
+    border: 1px #fff solid;
+    width: 270px;
+}
+
+.dg_mem:hover {
+    border: 1px rgb(0, 153, 255) solid;
+}
+
+.dg_set {
+    float: right;
+    width: 25px;
+    height: 25px;
+    margin-top: 20px;
+    margin-right: 30px;
+    background: url(../img/chilun1.png);
+}
+
+.dg_set:hover {
+    background: url(../img/chilun2.png);
+}
+
+.dg_mes {
+    float: left;
+    margin: 15px;
+}
+
+.dg_menu {
+    width: 20%;
+    float: left;
+}
+
+.dg_btn {
+    display: block;
+    padding: 0 10px 0 100px;
+    height: 50px;
+    font-size: 13px;
+    line-height: 50px;
+    color: #656565;
+    border-right: 5px #ccc solid;
+}
+
+.dg_btn:visited, .dg_btn:active, .dg_btn_active {
+    border-right: 5px #2c86c2 solid;
+    color: #2c86c2;
+}
+
+.dg_btn:hover {
+    color: #2c86c2;
+}
+
+.dg_detail {
+    background: url(../img/menu.png) no-repeat 50px 5px;
+}
+
+.dg_detail:hover {
+    background: url(../img/menu.png) no-repeat -210px 5px #eee;
+}
+
+.dg_serv {
+    background: url(../img/menu.png) no-repeat 50px -55px;
+}
+
+.dg_serv:hover {
+    background: url(../img/menu.png) no-repeat -210px -55px #eee;
+}
+
+.dg_env {
+    background: url(../img/menu.png) no-repeat 50px -115px;
+}
+
+.dg_env:hover {
+    background: url(../img/menu.png) no-repeat -210px -115px #eee;
+}
+
+.dg_code {
+    background: url(../img/menu.png) no-repeat 50px -175px;
+}
+
+.dg_code:hover {
+    background: url(../img/menu.png) no-repeat -210px -175px #eee;
+}
+
+.dg_dom {
+    background: url(../img/menu.png) no-repeat 50px -235px;
+}
+
+.dg_dom:hover {
+    background: url(../img/menu.png) no-repeat -210px -235px #eee;
+}
+
+.dg_status {
+    background: url(../img/menu.png) no-repeat 50px -295px;
+}
+
+.dg_status:hover {
+    background: url(../img/menu.png) no-repeat -210px -295px #eee;
+}
+
+.dg_del {
+    background: url(../img/menu.png) no-repeat 50px -355px;
+}
+
+.dg_del:hover {
+    background: url(../img/menu.png) no-repeat -210px -354px #eee;
+}

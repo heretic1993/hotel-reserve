@@ -18,6 +18,17 @@ router.get('/', function(req, res) {
 	console.log(req.session.username);
 });
 
+
+router.get('/user', function(req, res) {
+	if(req.session.username){
+		res.render('userBackend',{username: req.session.username,});
+	}
+	else{
+		res.render("index");
+	}
+
+});
+
 router.get('/login', function(req, res, next) {
 	if (req.session.err) {
 		var msg = req.session.err;

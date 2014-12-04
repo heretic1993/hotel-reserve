@@ -1,11 +1,26 @@
 ul.nav.navbar-nav.navbar-right
   if username!==undefined
-    li
-      a 欢迎您 #{username}!
-    li
-      a(href="/user") 个人中心
-    li
-      a(href="/logout") 退出
+    if userType=="user"
+      li
+        a 欢迎您 #{username}!
+      li
+        a(href="/user") 个人中心
+      li
+        a(href="/logout") 退出
+    else if userType=="hotel"
+      li
+        a 欢迎您 #{username}!
+      li
+        a(href="/hotel/Admin") 管理我的酒店
+      li
+        a(href="/logout") 退出
+    else if userType=="admin"
+      li
+        a 管理员 #{username}!
+      li
+        a(href="/hotel/admin") 网站管理
+      li
+        a(href="/logout") 退出
   else
     li
       a(href="/login") 登入

@@ -13,6 +13,7 @@ exports.userAuth = function(req, res, next) {
 			//console.log(req.body.password);
 			if (user.password.password == encrypt(req.body.password,user.password.salt)) {
 				req.session.username = req.body.username;
+				req.session.userType = "user";
 				res.redirect('/');
 			} else {
 				req.session.err = "密码错误";
@@ -36,6 +37,7 @@ exports.hotelAuth = function(req, res, next) {
 			//console.log(req.body.password);
 			if (user.password.password == encrypt(req.body.password,user.password.salt)) {
 				req.session.username = req.body.username;
+				req.session.userType = "hotel";
 				res.redirect('/');
 			} else {
 				req.session.err = "密码错误";

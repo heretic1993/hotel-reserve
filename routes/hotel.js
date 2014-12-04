@@ -9,16 +9,28 @@ hotel_routes.get('/', function(req, res, next) {
 
 })
 
+hotel_routes.get('/admin', function(req, res) {
+	if (req.session.userType=="hotel") {
+		res.render('hotel/hotelBackend',{
+			username: req.session.username,
+			userType: req.session.userType
+		})
+	} else {
+		res.end("You don't have access permission,please login first!");
+	}
+});
+
 hotel_routes.get('/details', function(req, res, next) {
 	next();
-})
+});
 
 hotel_routes.get('/details/:id', function(req, res) {
 	Hotel.findById(req.params.id, 'name main_image brief_intro comment', function(err, hotel) {
 		if(err) throw err;
 		res.render('hotel/details', {
 			username: req.session.username,
-			hotel: hotel
+			hotel:hotel,
+			userType: req.session.userType
 		});
 
 	})
@@ -45,7 +57,9 @@ hotel_routes.get('/signup', function(req, res) {
 	} else {
 		res.render('hotel/hotelSignup');
 	}
-})
+});
+
+
 hotel_routes.post('/signup', API.hotelSignUp);
 
 hotel_routes.post('/login', auth.hotelAuth);

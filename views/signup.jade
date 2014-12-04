@@ -1,33 +1,38 @@
 //signup.jade
 include head.jade
-script(src='/javascripts/jquery-md5/jquery.md5.js')
-script.
-  $(function(){
-    $("#submit_btn").on("click",function(){
-      if($("#password").val()===$("#password_confirm").val()){
-      $("#password").val($.md5($("#password").val()))
-      }
-    else{
-      $("#notice").text("两次输入密码不相同");
-      $(".password").addClass("has-warning");
-      $("#password_confirm").text();
-    }
-      });
-    });
+script(src='/javascripts/signup.js')
 
-
-h1 注册
-div
-  form(role='form' method='post' action='signup')
-    div.form-group
-      label(for='username') 用户名
-      input(type='text' name='username').form-control#username
-    div.form-group.password
-      label(for='password') 密码
-      input(type='password' name='password').form-control#password
-    div.form-group.password
-      label(for='password_confirm') 确认密码
-      input(type='password').form-control#password_confirm
+.h1.page-header 注册
+.row
+.row
+  div.col-md-5.col-md-offset-1
+    form(role="form",method="post",action="signup")
+      div.form-group
+        label(for="username") 用户名
+        input(type="text",name="username").form-control#username.username
+        span#error1.bg-warning
+      div.form-group
+        label(for="password") 密码
+        input(type="password",name="password").form-control#password.password
+        span#error2.bg-warning   <!--不能少于6位 且为字母和数字的结合-->
+      div.form-group
+        label(for="password_confirm") 确认密码
+        input(type="password").form-control#password_confirm.password_confirm
+        span#error5.bg-warning
+      div.form-group
+        label(for="phonenumber") 手机号码
+        input(type="text").form-control#phone.phone
+        span#error4.bg-warning
+      div.form-group
+        label(for='username') 邮箱
+        input(type="text",name="email").form-control#email.email
+        span#error3.bg-warning
+      div.form-group
+        input(type="checkbox",checked,name="checkbox")#checkbox1
+        span &nbsp&nbsp&nbsp&nbsp我同意
+        a(href="#") 注册条款
       label.label-warning#notice
-    button(type='submit').btn.btn-default#submit_btn 提交
+      div.form-group
+        button(type="submit").btn.btn-default#submit_btn 确认注册    
+  div.col-md-5 搞张图在这里，或者写注册之后的用处
 

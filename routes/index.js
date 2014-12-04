@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var auth = require('../middlewares/auth.js');
-var signup = require('../api').signup;
+var API = require('../api');
 var hotelSignUp = require('../api').hotelSignUp;
 var Hotel = require('../schemas').Hotel;
 
@@ -11,20 +11,26 @@ router.get('/', function(req, res) {
 	Hotel.find({}, 'name main_image brief_intro').limit(6).exec(function(err, result) {
 		res.render('index', {
 			username: req.session.username,
+			userType: req.session.userType,
 			hotelInfo: result
 		});
 	})
-
-	console.log(req.session.username);
 });
 
 
 router.get('/user', function(req, res) {
-	if(req.session.username){
-		res.render('userBackend',{username: req.session.username,});
-	}
-	else{
-		res.render("index");
+	if (req.session.userType == "user") {
+		res.render('userBackend', {
+			username: req.session.username,
+			userType: req.session.userType
+		});
+	} else if (req.session.userType == "hotel") {
+		res.render('hotel/hotelBackend', {
+			username: req.session.username,
+			userType: req.session.userType
+		});
+	} else {
+		res.redirect('/login');
 	}
 
 });
@@ -58,10 +64,11 @@ router.get('/signup', function(req, res) {
 	} else {
 		res.render('signup');
 	}
-})
+});
+
 router.post('/signup', hotelSignUp);
 
-
+router.get('/getLoginInfo', API.getLoginInfo);
 
 
 module.exports = router;

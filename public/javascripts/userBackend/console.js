@@ -6,16 +6,15 @@ define(["backbone",
         "jquery",
         "jqueryui",
         "lib/routers/generalRouter",
-        "lib/api/JSON_API"
+        "lib/api/AjaxAPI"
     ],
     function(Backbone, $, yui, gR, api) {
         return {
             initialize: function() {
                 window.hotel = {};
                 window.hotel.user = {};
-                window.hotel.routers = {
-                    generalRouter: new gR(),
-                };
+                window.hotel.API = new api();
+                window.hotel.router = new gR();
                 Backbone.history.start();
             }
         }

@@ -1,33 +1,33 @@
 if (typeof window !== 'undefined') {
     define(['jquery'],
         function($){
-            var JSON_client=function(){
+            var AjaxReq=function(){
             };
-            JSON_client.prototype={
+            AjaxReq.prototype={
                 request:function(options,cb){
                     $.ajax({
                         url:options.path,
-                        accept: "json",
+                        accept: "jsonp",
                         type: options.method,
                         async: true,
                         processData: true,
                         cache: false,
                         success: function (data) {
-                            cb( data);
+                            cb(data);
                         }
                     });
                 }
             }
-            return JSON_client;
+            return AjaxReq;
         });
 }
 else{
     var Request = require('request');
 
-    var JSON_client = function () {
+    var AjaxReq = function () {
 
     };
-    JSON_client.prototype = {
+    AjaxReq.prototype = {
 
         request: function (path, options, cb) {
             Request({
@@ -41,5 +41,5 @@ else{
             });
         }
     };
-    module.exports = JSON_client;
+    module.exports = AjaxReq;
 }

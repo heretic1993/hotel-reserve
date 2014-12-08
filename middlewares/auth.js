@@ -12,7 +12,8 @@ exports.userAuth = function(req, res, next) {
 		if (user !== null) {
 			//console.log(req.body.password);
 			if (user.password.password == encrypt(req.body.password,user.password.salt)) {
-				req.session.username = req.body.username;
+				req.session.username = user.name;
+				req.session._id = user._id;
 				req.session.userType = "user";
 				res.redirect('/');
 			} else {
@@ -36,7 +37,8 @@ exports.hotelAuth = function(req, res, next) {
 		if (user !== null) {
 			//console.log(req.body.password);
 			if (user.password.password == encrypt(req.body.password,user.password.salt)) {
-				req.session.username = req.body.username;
+				req.session.username = user.name;
+				req.session._id = user._id;
 				req.session.userType = "hotel";
 				res.redirect('/');
 			} else {

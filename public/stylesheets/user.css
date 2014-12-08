@@ -89,15 +89,15 @@
     color: #2c86c2;
 }
 
-.dg_btn:hover {
+.dg_btn:hover,btn_hover {
     color: #2c86c2;
 }
 
-.dg_detail {
+.order {
     background: url(../img/menu.png) no-repeat 50px 5px;
 }
 
-.dg_detail:hover {
+.order:hover .order_hover {
     background: url(../img/menu.png) no-repeat -210px 5px #eee;
 }
 

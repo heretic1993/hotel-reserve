@@ -5,17 +5,25 @@
 define(["backbone",
         "jquery",
         "jqueryui",
-        "lib/routers/generalRouter",
+        "lib/routers/userRouter",
+        "lib/routers/hotelRouter",
         "lib/api/AjaxAPI"
     ],
-    function(Backbone, $, yui, gR, api) {
+    function(Backbone, $, yui, uR, hR, api) {
         return {
             initialize: function() {
                 window.hotel = {};
-                window.hotel.user = {};
                 window.hotel.API = new api();
-                window.hotel.router = new gR();
-                Backbone.history.start();
+                window.hotel.API.getUserInfo(function(data) {
+                    if (data.userType == "user") {
+                        window.hotel.router = new uR();
+                    } else if (data.userType == "hotel") {
+                        window.hotel.router = new hR();
+                    } else if (data.userType == "admin") {
+
+                    }
+                });
+
             }
         }
     })

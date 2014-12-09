@@ -10,9 +10,26 @@ var hotelUserSchema = new Schema({
 	},
 	email: String,
 	telephone: String,
-	hotels: [{
+	hotel_name: String,
+	hotel_telephone: String,
+	hotel_main_image: String,
+	hotel_brief_intro: String,
+	hotel_intro: String,
+	hotel_location: {
+		city: String,
+		area: String
+	},
+	hotel_comment: [{
 		type: Schema.Types.ObjectId,
-		ref: 'Hotel'
+		ref: 'Comment'
+	}],
+	hotel_rooms: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Room'
+	}],
+	order: [{
+		type: Schema.Types.ObjectId,
+		ref: 'order'
 	}]
 
 })

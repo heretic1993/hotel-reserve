@@ -11,11 +11,12 @@ module.exports = function(req, res, next) {
 			console.log(req.body.username);
 			var newUser = new hotelUser({
 				name: req.body.username,
+				telephone: req.body.telephone,
 				password: {
 					password: psw_with_salt,
 					salt: salt
 				},
-				email: "abc@qq.com"
+				email: req.body.email
 			});
 			newUser.save();
 			res.redirect('/login');

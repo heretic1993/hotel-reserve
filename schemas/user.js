@@ -12,6 +12,10 @@ var UserSchema = new Schema({
 	},
 	email: String,
 	credit: Number,
+	order:[{
+		type: Schema.Types.ObjectId,
+		ref: 'order'
+	}],
 	comment:[{
 		type: Schema.Types.ObjectId,
 		ref: 'Comment'

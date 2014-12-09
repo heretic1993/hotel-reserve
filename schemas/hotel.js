@@ -15,12 +15,8 @@ var HotelSchema = new Schema({
 		area: String
 	},
 	comment: [{
-		username: String,
-		date: {
-			type: Date,
-			default: Date.now
-		},
-		content: String
+		type: Schema.Types.ObjectId,
+		ref: 'Comment'
 	}],
 	rooms: [{
 		type: Schema.Types.ObjectId,

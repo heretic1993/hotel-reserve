@@ -2,19 +2,20 @@ var express = require('express');
 var router = express.Router();
 var auth = require('../middlewares/auth.js');
 var API = require('../api');
-var hotelSignUp = require('../api').hotelSignUp;
-var Hotel = require('../schemas').Hotel;
+var signup = require('../api').signup;
+var HotelUser = require('../schemas').hotelUser;
 
 
 router.get('/', function(req, res) {
-
-	Hotel.find({}, 'name main_image brief_intro').limit(6).exec(function(err, result) {
-		res.render('index', {
-			username: req.session.username,
-			userType: req.session.userType,
-			hotelInfo: result
-		});
-	})
+	var temp = [];
+	HotelUser.find({}, 'hotel').limit(6).exec(function(err, result) {
+		temp.push(result.hotel);
+	});
+	res.render('index', {
+		username: req.session.username,
+		userType: req.session.userType,
+		hotelInfo: temp
+	});
 });
 
 
@@ -66,7 +67,7 @@ router.get('/signup', function(req, res) {
 	}
 });
 
-router.post('/signup', hotelSignUp);
+router.post('/signup', signup);
 
 router.get('/getLoginInfo', API.getLoginInfo);
 

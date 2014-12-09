@@ -3,5 +3,5 @@ include rcmd-item.jade
   .row
     -for(var i in hotelInfo){
       -console.log(hotelInfo[i])
-      +item(hotelInfo[i].main_image,hotelInfo[i].name,hotelInfo[i].brief_intro,hotelInfo[i]._id)
+      +item(hotelInfo[i].hotel.main_image,hotelInfo[i].hotel.name,hotelInfo[i].hotel.brief_intro,hotelInfo[i]._id)
     -}

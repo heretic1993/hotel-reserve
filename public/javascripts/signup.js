@@ -2,7 +2,6 @@
 $(function() {
 	$("#submit_btn").on("click", function() {
 		try {
-			console.log("message1!");
 			var name = new RegExp("^[a-zA-Z0-9]{6,30}$")
 			if (name.test($("#username").val())) {
 
@@ -23,11 +22,11 @@ $(function() {
 				$("#password_confirm").text();
 			}
 
-			var ph = new RegExp("^[1][0-9]{10,10}$")
-			if (ph.test($("#username").val())) {
+			var ph = new RegExp();//ph.test($("#telephone").val())
+			if (1) {
 
 			} else {
-				throw new Error("不能少于六位或超过30位");
+				throw new Error("电话错误");
 				$(".phone").addClass("has-warning");
 			}
 
@@ -35,7 +34,7 @@ $(function() {
 			if (email.test($("#email").val())) {
 				$("#submit_btn").attr("disabled", false);
 			} else {
-				throw new Error("不能少于六位或超过30位");
+				throw new Error("邮箱错误");
 				$(".email").addClass("has-warning");
 			}
 			return true;

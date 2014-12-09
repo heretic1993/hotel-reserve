@@ -1,0 +1,22 @@
+//addInfo.jade
+h1 酒店信息添加
+div
+  form(role='form' method='post' action='/hotel/addHotelInfo')
+    div.form-group
+      label(for='username') 酒店名
+      input(type='text' name='username').form-control#username
+    div.form-group
+      label(for='username') 电话
+      input(type='text' name='username').form-control#username
+    div.form-group
+      label(for='username') 图片
+      input(type='file' name='username').form-control#username
+    div.form-group
+      label(for='username') 简介
+      input(type='text' name='username').form-control#username
+    div.form-group
+      label(for='username') 区域
+      input(type='text' name='username').form-control#username
+
+      label.label-warning#notice
+    button(type='submit').btn.btn-default#submit_btn 提交

@@ -31,8 +31,8 @@ define([
         },
         renderData: function() {
             window.hotel.API.getUserInfo(function(data) {
-                $("span#username").html(data.name);
-                $("span#icon").html('<img src="' + data.icon + '"></img>');
+                $("span#username").html(data.user.name);
+                $("span#icon").html('<img src="' + data.user.icon + '"></img>');
             });
         },
         destroy: function() {}

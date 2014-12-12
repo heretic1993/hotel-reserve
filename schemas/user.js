@@ -15,7 +15,7 @@ var UserSchema = new Schema({
 	icon: String,
 	order:[{
 		type: Schema.Types.ObjectId,
-		ref: 'order'
+		ref: 'Order'
 	}],
 	comment:[{
 		type: Schema.Types.ObjectId,

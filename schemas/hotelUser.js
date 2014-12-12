@@ -11,30 +11,35 @@ var hotelUserSchema = new Schema({
 	email: String,
 	telephone: String,
 	hotel: {
-		name: String,
-		telephone: String,
-		main_image: String,
-		brief_intro: String,
-		intro: String,
-		location: {
-			city: String,
-			area: String
-		},
-		comment: [{
-			type: Schema.Types.ObjectId,
-			ref: 'Comment'
-		}],
-		rooms: [{
-			type: Schema.Types.ObjectId,
-			ref: 'Room'
-		}],
-		order: [{
-			type: Schema.Types.ObjectId,
-			ref: 'order'
-		}]
+		type: Schema.Types.ObjectId,
+		ref: 'Hotel'
 	}
-
-
 })
 
+var hotelSchema = new Schema({
+	name: String,
+	telephone: String,
+	main_image: String,
+	brief_intro: String,
+	intro: String,
+	location: {
+		city: String,
+		area: String
+	},
+	comment: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Comment'
+	}],
+	rooms: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Room'
+	}],
+	order: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Order'
+	}]
+});
+
+
+mongoose.model('Hotel', hotelSchema);
 mongoose.model('hotelUser', hotelUserSchema);

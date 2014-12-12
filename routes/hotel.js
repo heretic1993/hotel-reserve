@@ -2,6 +2,7 @@ var express = require('express');
 var hotel_routes = express.Router();
 var auth = require('../middlewares/auth');
 var Hotel = require('../schemas').Hotel;
+var hotelUser = require('../schemas').hotelUser;
 var API = require('../api');
 
 hotel_routes.get('/', function(req, res, next) {
@@ -11,10 +12,19 @@ hotel_routes.get('/', function(req, res, next) {
 
 hotel_routes.get('/admin', function(req, res) {
 	if (req.session.userType == "hotel") {
-		res.render('hotel/hotelBackend', {
-			username: req.session.username,
-			userType: req.session.userType
-		})
+		hotelUser.findById(req.session._id, function(err, data) {
+			if (err) throw err;
+			console.log("!!!!!!!!"+data.hotel);
+			if (data.hotel !== undefined) {
+				res.render('hotel/hotelBackend', {
+					username: req.session.username,
+					userType: req.session.userType
+				});
+			} else {
+				res.render('hotel/noneHotelMsg');
+			}
+		});
+
 	} else {
 		res.end("You don't have access permission,please login first!");
 	}
@@ -70,7 +80,8 @@ hotel_routes.get('/addHotelInfo', function(req, res) {
 	}
 });
 
-
+hotel_routes.post('/addHotelInfo', API.addHotelInfo);
+hotel_routes.post('/addRoom',API.addRoom);
 
 hotel_routes.post('/login', auth.hotelAuth);
 

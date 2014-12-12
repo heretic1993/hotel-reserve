@@ -4,13 +4,16 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var roomSchema = new Schema({
+	name: String,
 	size: Number,
-	roomType: String,
-	amount: Number,
 	price: Number,
-	status: {
-		remaind: Number
-	},
+	picture: [{
+		type: String
+	}],
+	status: [{
+		date: Date,
+		amount: Number
+	}],
 	hasWindows: Boolean
 })
 

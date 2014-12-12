@@ -6,6 +6,8 @@ var authUser = require('./authUser');
 var findHotel = require('./findHotel');
 var signup = require('./signup');
 var hotelSignUp = require('./hotelSignup');
+var addHotelInfo = require('./addHotelInfo');
+var addRoom = require('./addRoom');
 
 exports.getLoginInfo = getLoginInfo;
 exports.fetchHotelInfo = fetchHotelInfo;
@@ -14,3 +16,5 @@ exports.authUser = authUser;
 exports.findHotel = findHotel;
 exports.signup = signup;
 exports.hotelSignUp = hotelSignUp;
+exports.addHotelInfo = addHotelInfo;
+exports.addRoom = addRoom;

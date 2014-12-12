@@ -12,11 +12,12 @@ define(['jquery',
             'order': "order",
             'rooms': 'rooms',
             'comment': 'comment',
-            'account': 'account'
+            'account': 'account',
+            'addroom': 'addroom'
         },
         initialize: function() {
             console.log("init");
-            _.bindAll(this, 'order');
+            _.bindAll(this, 'order','addroom');
             window.hotel.userView = new userView();
             this.order();
             Backbone.history.start();
@@ -46,11 +47,15 @@ define(['jquery',
             $("*").removeClass("active");
             $("#rooms").addClass("active");
 
-            if (window.hotel.propView) {
-                window.hotel.propView.render();
+            if (window.hotel.roomView) {
+                window.hotel.roomView.render();
             } else {
-                window.hotel.property = new roomView();
+                window.hotel.roomView = new roomView();
             }
+        },
+        addroom: function(){
+            this.rooms();
+            
         },
         comment: function(){
             $("*").removeClass("active");
@@ -59,7 +64,7 @@ define(['jquery',
             if (window.hotel.commentView) {
                 window.hotel.commentView.render();
             } else {
-                window.hotel.comment = new commentView();
+                window.hotel.commentView = new commentView();
             }
         }
     })

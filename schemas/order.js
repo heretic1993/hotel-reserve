@@ -15,7 +15,6 @@ var OrderSchema = new Schema({
 		type: Date
 	},
 	status: Boolean
-
-})
+});
 
 mongoose.model('Order', OrderSchema);

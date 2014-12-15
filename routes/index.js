@@ -4,18 +4,19 @@ var auth = require('../middlewares/auth.js');
 var API = require('../api');
 var signup = require('../api').signup;
 var HotelUser = require('../schemas').hotelUser;
+var Hotel = require('../schemas').Hotel;
 
 
 router.get('/', function(req, res) {
-	var temp = [];
-	HotelUser.find({}, 'hotel').limit(6).exec(function(err, result) {
-		temp.push(result.hotel);
+	Hotel.find({}, 'name brief_intro main_image location').limit(6).exec(function(err, result) {
+		console.log(result);
+		res.render('index', {
+			username: req.session.username,
+			userType: req.session.userType,
+			hotelInfo: result
+		});
 	});
-	res.render('index', {
-		username: req.session.username,
-		userType: req.session.userType,
-		hotelInfo: temp
-	});
+
 });
 
 
@@ -69,7 +70,23 @@ router.get('/signup', function(req, res) {
 
 router.post('/signup', signup);
 
-router.get('/getLoginInfo', API.getLoginInfo);
 
+router.get('/reserve/:id', function(req, res) {
+	if (req.session.userType == "user") {
+		res.render('hotel/reserve', {
+			username: req.session.username,
+			userType: req.session.userType,
+			hotel_id: req.params.id
+		});
+	} else {
+		req.session.err = "请先以普通用户登入";
+		res.redirect('/login');
+	}
+});
+
+
+router.get('/getLoginInfo', API.getLoginInfo);
+router.get('/getComment/:type', API.getComment);
+router.get('/getComment/:type/:id', API.getComment);
 
 module.exports = router;

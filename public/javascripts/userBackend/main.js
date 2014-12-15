@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2014/8/5.
- */
 require.config({
     baseUrl: "../javascripts/userBackend",
     shim: {

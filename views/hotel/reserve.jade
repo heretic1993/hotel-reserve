@@ -1,0 +1,51 @@
+//reserve.jade
+extend ../layout.jade
+
+block extScript
+  script(src="/javascripts/underscore/underscore.js")
+  script(src="/javascripts/reserve.js")
+
+block content
+  .container
+    h1.page-header 提交订单
+    .row
+      p.sr-only.hotelID= hotel_id
+      h3 酒店信息确认
+      h3.hotelName
+      p.hotelAddr 地址：
+      p.hotelPhone 电话：
+    .row
+      h3 房型选择
+      .roomSchemaBox
+    .row
+      form(role='form' method='post' action='')
+        div.form-group
+          label(for='name') 房型选择
+          select.roomSchemas.form-control
+            option(value="") 请选择
+        div.form-group
+          label(for='name') 入住人姓名
+          input(type='text' name='name').form-control#name
+        div.form-group
+          label(for='date') 入住日期
+          input(type='date' name='date').form-control#date
+        div.form-group
+          label(for='telephone') 入住人电话
+          input(type='text' name='telephone').form-control#telephone
+        label.label-warning#notice
+        button(type='submit').btn.btn-default#submit_btn 提交
+
+
+  script(type='text/template').PanelTemplate.
+    <div class="col-md-3">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+        <%= name %>
+     </div>
+     <div class="panel-body">
+        <p>尺寸：<%= size||"NaN" %></p>
+        <p>窗户：<%= hasWindow?"有":"无" %></p>
+        <p>价格：<%= price||"NaN" %></p>
+     </div>
+     <span class="sr-only"><%= _id %></span>
+     </div>

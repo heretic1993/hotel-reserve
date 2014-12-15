@@ -8,10 +8,23 @@ var OrderSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	hotel: String,
-	room:String,
-	user: String,
-	arriveTime:{
+	hotel: {
+		type: Schema.Types.ObjectId,
+		ref: 'Hotel'
+	},
+	room: {
+		type: Schema.Types.ObjectId,
+		ref: 'Room'
+	},
+	user: {
+		type: Schema.Types.ObjectId,
+		ref: 'User'
+	},
+	customer: {
+		name: String,
+		telephone: String
+	}
+	arriveTime: {
 		type: Date
 	},
 	status: Boolean

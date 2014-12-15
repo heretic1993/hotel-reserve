@@ -13,7 +13,8 @@ module.exports = function(grunt) {
 					'jquery/': 'jquery/dist/',
 					'holderjs/':'holderjs/',
 					'lazyload/':'jquery.lazyload/',
-					'jquery-md5/jquery.md5.js':'jquery-md5/jquery.md5.js'
+					'jquery-md5/jquery.md5.js':'jquery-md5/jquery.md5.js',
+					'underscore/':'underscore/'
 				}
 			},
 			css: {

@@ -24,7 +24,8 @@ var hotelSchema = new Schema({
 	intro: String,
 	location: {
 		city: String,
-		area: String
+		area: String,
+		address: String
 	},
 	comment: [{
 		type: Schema.Types.ObjectId,

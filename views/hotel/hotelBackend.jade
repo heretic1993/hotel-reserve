@@ -2,10 +2,10 @@
 
 html
   head
+    script(data-main="../javascripts/userBackend/main.js",src="../javascripts/userBackend/lib/requirejs/requirejs-2.1.9.min.js")
     link(rel="stylesheet",type="text/css",href='/stylesheets/bootstrap/css/bootstrap.min.css')
     script(src="/stylesheets/bootstrap/js/bootstrap.min.js")
     link(type="text/css",rel="stylesheet" href="../stylesheets/user.css")
-    script(data-main="../javascripts/userBackend/main.js",src="../javascripts/userBackend/lib/requirejs/requirejs-2.1.9.min.js")
   body
     include ../header.jade
     .backboneScope

@@ -1,4 +1,9 @@
 extends ../layout
+block extScript
+  script(src='/javascripts/underscore/underscore-min.js')
+  script(src='/javascripts/ajax/getRoom.js')
+  script.
+    $(getRoom('#{hotel._id}'));
 
 mixin comment(commentArray)
   -for(var i in commentArray){
@@ -9,7 +14,6 @@ mixin comment(commentArray)
       .col-lg-12.col-md-12 !{commentArray[i].content}
   -}
 
-
 block content
   .container
     .row
@@ -18,14 +22,30 @@ block content
       .col-xs-0.col-sm-0.col-md-6.col-lg-6
         h1.label-default !{hotel.name}
         p !{hotel.brief_intro}
+        a.btn.btn-primary(href="/reserve/"+hotel._id) 立即预订
     .row
+      div.roomSchemaBox
       .col-md-12.col-lg-12
-        div
-          h1 Markdown.md lays in these area!
-          p.
-            酒店详情！！
+        div.clear
+          h1 详细说明
+          p !{hotel.intro}
     .row
       .col-md-12.col-lg-12
         div
           h1 评价详情
           +comment(hotel.comment)
+
+
+  script(type='text/template').PanelTemplate.
+    <div class="col-md-3">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+        <%= name %>
+     </div>
+     <div class="panel-body">
+        <p>尺寸：<%= size||"NaN" %></p>
+        <p>窗户：<%= hasWindow?"有":"无" %></p>
+        <p>价格：<%= price||"NaN" %></p>
+     </div>
+     </div>
+    </div>

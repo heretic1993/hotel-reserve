@@ -3,8 +3,9 @@ define([
     'backbone',
     'underscore',
     'text!views/hoteluser/rooms/template/rooms.html',
-    'text!views/hoteluser/rooms/template/addroom.html'
-], function($, Backbone, _, template, addroom) {
+    'text!views/hoteluser/rooms/template/addroom.html',
+    'text!views/hoteluser/rooms/template/roomInfo.html'
+], function($, Backbone, _, template, addroom, panel) {
     return Backbone.View.extend({
         template: _.template(template),
         initialize: function() {
@@ -19,14 +20,24 @@ define([
             $(this.el).html(this.template());
             this.parent.html(this.el);
             this.delegateEvents();
-            //this.renderData();
+            this.renderData();
             return this;
         },
         addRoom: function() {
             $(this.el).html(_.template(addroom));
         },
         renderData: function() {
-
+            window.hotel.API.fetchRoomInfo(function(data) {
+                console.log(data);
+                $(data).each(function(index, content) {
+                    $("#roomInfoPanel").append(_.template(panel)({
+                        name: content.name,
+                        size: content.size,
+                        price: content.price,
+                        hasWindow: content.hasWindow
+                    }));
+                })
+            })
         },
         destroy: function() {}
     })

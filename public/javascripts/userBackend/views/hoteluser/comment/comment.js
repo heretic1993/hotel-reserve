@@ -18,10 +18,16 @@ define([
             $(this.el).html(this.template());
             this.parent.html(this.el);
             this.delegateEvents();
-            //this.renderData();
+            this.renderData();
         },
         renderData: function() {
-
+            var commentTemplate=_.template($('#commentTemplate').html());
+            window.hotel.API.getHotelComment(function(data){
+                console.log(data);
+                $(data).each(function(index,info){
+                    $("#comment").append(commentTemplate(info));
+                })
+            })
         },
         destroy: function() {}
     })

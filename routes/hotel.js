@@ -35,11 +35,12 @@ hotel_routes.get('/details', function(req, res, next) {
 });
 
 hotel_routes.get('/details/:id', function(req, res) {
-	Hotel.findById(req.params.id, 'name main_image brief_intro comment', function(err, hotel) {
+	Hotel.findById(req.params.id,'name brief_intro intro main_image location').exec(function(err, result) {
 		if (err) throw err;
+		console.log(req.param.id);
 		res.render('hotel/details', {
 			username: req.session.username,
-			hotel: hotel,
+			hotel: result,
 			userType: req.session.userType
 		});
 
@@ -88,5 +89,8 @@ hotel_routes.post('/login', auth.hotelAuth);
 hotel_routes.get('/fetchHotelInfo/:id', API.fetchHotelInfo);
 hotel_routes.get('/fetchAllHotelsInfo', API.fetchAllHotelsInfo);
 hotel_routes.get('/findHotel', API.findHotel);
+hotel_routes.get('/fetchRoomInfo', API.fetchRoomInfo);
+hotel_routes.get('/fetchRoomInfo/:id', API.fetchRoomByHotelId);
+
 
 module.exports = hotel_routes;

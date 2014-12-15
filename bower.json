@@ -24,6 +24,7 @@
     "bootstrap": "~3.3.0",
     "holderjs": "~2.4.1",
     "jquery.lazyload": "~1.9.3",
-    "jquery-md5": "*"
+    "jquery-md5": "*",
+    "underscore": "~1.7.0"
   }
 }

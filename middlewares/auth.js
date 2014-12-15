@@ -39,6 +39,7 @@ exports.hotelAuth = function(req, res, next) {
 			if (user.password.password == encrypt(req.body.password,user.password.salt)) {
 				req.session.username = user.name;
 				req.session._id = user._id;
+				req.session._hid= user.hotel;
 				req.session.userType = "hotel";
 				res.redirect('/');
 			} else {

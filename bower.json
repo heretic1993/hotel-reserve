@@ -25,6 +25,7 @@
     "holderjs": "~2.4.1",
     "jquery.lazyload": "~1.9.3",
     "jquery-md5": "*",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "moment": "~2.8.4"
   }
 }

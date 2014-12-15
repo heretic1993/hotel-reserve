@@ -39,7 +39,18 @@ $(function() {
 	});
 
 	$('#submit_btn').on('click', function(target) {
-
+		$.post('/reserve',{
+			hotel:$(".hotelID").html(),
+			room:$(".roomSchemas").val(),
+			name:$(".name").val(),
+			date:$(".date").val(),
+			telephone:$(".telephone").val()
+		},function(data){
+			if(data=="success"){
+				alert("success!");
+			}
+		})
+		return false;
 	});
 
 });

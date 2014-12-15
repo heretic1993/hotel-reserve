@@ -11,6 +11,7 @@ var addRoom = require('./addRoom');
 var fetchRoomInfo = require('./fetchRoomInfo');
 var fetchRoomByHotelId = require('./fetchRoomByHotelId');
 var getComment = require('./getComment');
+var makeOrder = require('./makeOrder');
 
 exports.getLoginInfo = getLoginInfo;
 exports.fetchHotelInfo = fetchHotelInfo;
@@ -24,3 +25,4 @@ exports.addRoom = addRoom;
 exports.fetchRoomInfo = fetchRoomInfo;
 exports.fetchRoomByHotelId = fetchRoomByHotelId;
 exports.getComment = getComment;
+exports.makeOrder = makeOrder;

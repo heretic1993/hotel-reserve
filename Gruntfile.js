@@ -14,7 +14,8 @@ module.exports = function(grunt) {
 					'holderjs/':'holderjs/',
 					'lazyload/':'jquery.lazyload/',
 					'jquery-md5/jquery.md5.js':'jquery-md5/jquery.md5.js',
-					'underscore/':'underscore/'
+					'underscore/':'underscore/',
+					'moment/':'moment'
 				}
 			},
 			css: {

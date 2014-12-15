@@ -83,7 +83,7 @@ router.get('/reserve/:id', function(req, res) {
 		res.redirect('/login');
 	}
 });
-
+router.post('/reserve', API.makeOrder);
 
 router.get('/getLoginInfo', API.getLoginInfo);
 router.get('/getComment/:type', API.getComment);

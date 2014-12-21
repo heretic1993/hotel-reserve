@@ -7,11 +7,15 @@ define(["backbone",
         "jqueryui",
         "lib/routers/userRouter",
         "lib/routers/hotelRouter",
-        "lib/api/AjaxAPI"
+        "lib/api/AjaxAPI",
+        "moment",
+        "momentLocale"
     ],
-    function(Backbone, $, yui, uR, hR, api) {
+    function(Backbone, $, yui, uR, hR, api, moment, zhcn) {
         return {
             initialize: function() {
+                moment.locale('zh-cn');
+                console.log(moment.locale());
                 window.hotel = {};
                 window.hotel.API = new api();
                 window.hotel.API.getUserInfo(function(data) {

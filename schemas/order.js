@@ -36,6 +36,11 @@ var OrderSchema = new Schema({
 //3 for has been refused by hotel
 //4 for has been canceled by user
 //5 for has been payed by user
-
+//6 for payed and confirmed
+//7 for has returned the money
+//8 for signing up for return
+//9 for cancel refused by hotel
+//10 for have arrived the hotel
+//11 for have departed from the hotel
 
 mongoose.model('Order', OrderSchema);

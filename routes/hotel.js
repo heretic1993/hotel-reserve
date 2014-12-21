@@ -91,6 +91,6 @@ hotel_routes.get('/fetchAllHotelsInfo', API.fetchAllHotelsInfo);
 hotel_routes.get('/findHotel', API.findHotel);
 hotel_routes.get('/fetchRoomInfo', API.fetchRoomInfo);
 hotel_routes.get('/fetchRoomInfo/:id', API.fetchRoomByHotelId);
-
+hotel_routes.get('/fetchRoomById/:id',API.fetchRoomById);
 
 module.exports = hotel_routes;

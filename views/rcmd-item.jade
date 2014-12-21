@@ -7,5 +7,5 @@ mixin item(image,name,introduction,id)
         .row
           p.col-md-offset-1 !{introduction}
         .row
-          a.col-md-3.col-md-offset-2(href="#" class="btn btn-primary" role="button") 立即预订
+          a.col-md-3.col-md-offset-2(href="/reserve/"+id class="btn btn-primary" role="button") 立即预订
           a.col-md-3.col-md-offset-1(href="hotel/details/"+id class="btn btn-default" role="button") 查看详情

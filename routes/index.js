@@ -55,7 +55,8 @@ router.post('/login', auth.userAuth);
 router.get('/logout', function(req, res) {
 	req.session.destroy(
 		function() {
-			res.redirect('/');
+			res.clearCookie;
+			res.redirect('/#');
 		});
 
 })
@@ -88,5 +89,8 @@ router.post('/reserve', API.makeOrder);
 router.get('/getLoginInfo', API.getLoginInfo);
 router.get('/getComment/:type', API.getComment);
 router.get('/getComment/:type/:id', API.getComment);
+router.get('/getOrder', API.getOrder);
+router.get('/fetchUserInfo/:id', API.fetchUserInfo);
+router.get('/orderManipulate/:id/:action', API.orderManipulate);
 
 module.exports = router;

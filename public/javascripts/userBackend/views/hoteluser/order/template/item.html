@@ -1,0 +1,60 @@
+//item.html
+//item.html
+<tr>
+  <td><%= orderNumber %></td>
+  <td><%= roomSchema %></td>
+  <td><%= userName %></td>
+  <td><%= personName %></td>
+  <td><%= telephone %></td>
+  <td><%= arriveTime %></td>
+  <td><% switch(status){
+  	case 1:
+  		print("等待确认</td>");
+  		print('<td><button class="btn btn-primary btn-xs">确认</button><button class="btn btn-danger btn-xs">拒绝</button></td>');
+  		break;
+    case 2:
+  		print("已确认</td>");
+  		print('<td><div class="btn-group"><button class="btn btn-primary btn-xs">已到店</button></td><td><button class="btn btn-primary btn-xs">未到店</button></div></td>');
+  		break;
+  	case 3:
+  		print("已拒绝</td>");
+  		print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+  	  break;
+  	case 4:
+  		print("已取消</td>");
+  		print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+  		break;
+   	case 5:
+  		print("已支付</td>");
+  		print('<td><button class="btn btn-primary btn-xs cancel">取消订单并退款</button></td>');
+  		break;
+   	case 6:
+  		print("已支付并确认</td>");
+  		print('<td><button class="btn btn-primary btn-xs disabled">取消</button></td>');
+  		break;
+   	case 7:
+  		print("已退款</td>");
+  		print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+  		break;
+    case 8:
+  		print("申请退款中</td>");
+      print('<td><button class="btn btn-primary btn-xs">同意退款</button></td>');
+  		break;
+  	case 9:
+  		print("已拒绝退款</td>");
+  		print('<td><div class="btn-group"><button class="btn btn-primary btn-xs delete">删除订单</button></td></div>');
+  		break;
+    case 10:
+      print("已入住</td>");
+      print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+      break;
+    case 11:
+      print("已离店</td>");
+      print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+      break;
+    default:
+    	print("未知</td><td></td>")
+  }
+
+   %>
+</tr>

@@ -8,24 +8,21 @@ define(['jquery',
 ], function($, Backbone, userView, orderView, accountView,propView,commentView) {
     return Backbone.Router.extend({
         routes: {
-            '': "welcome",
+            '': "order",
             'MyOrder': "order",
             'MyAccount': 'account',
             'MyProperty': 'property',
             'MyComment': 'comment'
         },
         initialize: function() {
-            console.log("init");
             _.bindAll(this, 'order');
             window.hotel.userView = new userView();
-            this.order();
             Backbone.history.start();
         },
-        welcome: function() {},
         order: function() {
             $("*").removeClass("active");
             $("#order").addClass("active");
-            if (window.hotel.order) {
+            if (window.hotel.order!==undefined) {
                 window.hotel.order.render();
             } else {
                 window.hotel.order = new orderView();

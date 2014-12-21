@@ -26,10 +26,9 @@ var makeOrder = function(req, res, next) {
 				hotel.order.push(newOrder);
 				newOrder.save(function() {
 					user.save(function() {
-						hotel.save(function(){
+						hotel.save(function() {
 							res.end("success");
-						}
-						);
+						});
 					});
 				});
 			})

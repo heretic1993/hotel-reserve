@@ -1,0 +1,25 @@
+//- login.jade
+
+include ../head.jade
+script(src='../javascripts/jquery-md5/jquery.md5.js')
+script(src='../javascripts/login.js')
+
+body
+  div.row(style="height:200px")
+  div.col-md-6.col-md-offset-1
+  div.col-md-4
+    form(role="form",method="post",action="/admin/login")
+      label(for="username") 用户名
+      input(type="text",placeholder="Enter username",name="username").form-control#username
+      .form-group
+        label(for="password") 密码
+        input(type="password",placeholder="Password",name="password").form-control#password
+        input(type="checkbox")
+        span 忘记密码？
+        span.bg-warning.col-md-offset-1 !{message}
+      button(type="submit").btn.btn-default#submit_btn 登陆
+      a(href="signup").btn.btn-default 注册
+
+.row
+  .col-md-12
+    include ../footer.jade

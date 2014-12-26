@@ -22,6 +22,7 @@ var hotelSchema = new Schema({
 	main_image: String,
 	brief_intro: String,
 	intro: String,
+	confirm: Boolean,
 	location: {
 		city: String,
 		area: String,

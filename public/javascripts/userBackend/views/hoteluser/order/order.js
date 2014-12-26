@@ -11,10 +11,12 @@ define([
         template: _.template(template),
         initialize: function() {
             this.parent = $($("#right-content")[0]);
-            _.bindAll(this, "destroy", "render");
+            _.bindAll(this, "destroy", "render", "onClick");
             this.render();
         },
-        events: {},
+        events: {
+            'click button': 'onClick'
+        },
         render: function() {
             $(this.el).html(this.template());
             this.parent.html(this.el);
@@ -27,6 +29,7 @@ define([
                 $('.tbd_order').empty();
                 $(data).each(function(index, order) {
                     var info = {
+                        id: order._id,
                         orderNumber: order._id,
                         orderTime: moment(order.time).format('ll'),
                         personName: order.customer.name,
@@ -45,6 +48,15 @@ define([
                         })
                     })
                 });
+            });
+        },
+        onClick: function(event) {
+            var self = this;
+            var order_id = $($(event.target).parent()).siblings().children().html();
+            var action = $(event.target).attr('value');
+            $.get('/orderManipulate/' + order_id + '/' + action, function(data) {
+                self.renderData();
+                console.log(data);
             });
         },
         destroy: function() {}

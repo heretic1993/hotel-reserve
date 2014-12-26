@@ -17,10 +17,8 @@ var getComment = function(req, res, next) {
 		});
 	} else if (req.params.type == "hotel") {
 		var idToFind;
-		console.log(req.params.id);
 		if (req.session.userType == "hotel") {
 			if (req.params.id == undefined) {
-				console.log(req.session._hid);
 				idToFind=req.session._hid;
 			} else {
 				idToFind = req.params.id;

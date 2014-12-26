@@ -42,5 +42,7 @@ var OrderSchema = new Schema({
 //9 for cancel refused by hotel
 //10 for have arrived the hotel
 //11 for have departed from the hotel
+//12 for haven't checked in. 
+//13 for have commented.
 
 mongoose.model('Order', OrderSchema);

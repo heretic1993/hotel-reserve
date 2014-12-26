@@ -16,8 +16,10 @@ var addHotelInfo = function(req, res, next) {
 					intro: req.body.intro,
 					location: {
 						city: req.body.city,
-						area: req.body.area
-					}
+						area: req.body.area,
+						address: req.body.address
+					},
+					confirm: false
 				});
 				info.save();
 				result.hotel = info._id;

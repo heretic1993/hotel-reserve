@@ -2,12 +2,12 @@ define([
     'jquery',
     'backbone',
     'underscore',
-    'text!views/user/template/account.html'
+    'text!views/admin/template/admin.html'
 ], function($, Backbone, _, template) {
     return Backbone.View.extend({
+        el: $("div.backboneScope"),
         template: _.template(template),
         initialize: function() {
-            this.el = $("div#right-content");
             _.bindAll(this, "destroy", "render");
             this.render();
         },

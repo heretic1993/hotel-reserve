@@ -18,6 +18,7 @@ module.exports = function(req, res, next) {
 					salt: salt
 				},
 				email: req.body.email,
+				money:0,
 				credit: 0
 			});
 			newUser.save();

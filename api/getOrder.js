@@ -15,7 +15,12 @@ var getOrder = function(req, res, next) {
 	} else if (req.session.userType == 'hotel') {
 		Hotel.findById(req.session._hid).populate('order').exec(function(err, result) {
 			if (err) throw err;
-			res.jsonp(result.order);
+			console.log(result);
+			if (result !== null) {
+				res.jsonp(result.order);
+			} else {
+				res.end();
+			}
 		});
 	} else {
 		res.end("You don't have permission to access here!");

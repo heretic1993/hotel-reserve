@@ -1,0 +1,19 @@
+//pay.jade
+extend layout.jade
+block extScript
+  script(type="text/javascript").
+    $(function() {
+    $(".payBtn").on("click",function(target) {
+        $.post("/pay",{
+        	orderId : $(".payBtn").attr("value"),
+        	}, function(data) {
+            if (data == "success") {
+            	window.location.href="/user";
+            }
+        });
+    })
+    })
+
+block content
+  h1 现需支付：!{amount}
+  a(value=orderId).btn.btn-primary.btn-lg.payBtn 跳转到银行支付

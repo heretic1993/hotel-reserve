@@ -7,46 +7,57 @@
   <td><span class="sr-only"><%= id %></span><% switch(status){
   	case 1:
   		print("等待酒店确认中</td>");
-  		print('<td><button class="btn btn-primary btn-xs" value="cancel">取消订单</button></td>');
+  		print('<td><button class="btn btn-primary btn-xs" value="cancel">取消订单</button><a href="/pay/'+id);
+      print('"target="_blank" class="btn btn-primary btn-xs">预先支付</a></td>');
   		break;
     case 2:
   		print("确认成功</td>");
-  		print('<td><button class="btn btn-primary btn-xs">取消订单</button></td>');
+  		print('<td><button class="btn btn-primary btn-xs" disabled>取消订单</button><a href="/pay/'+id);
+      print('"target="_blank" class="btn btn-primary btn-xs">预先支付</a></td>');
   		break;
   	case 3:
   		print("酒店取消订单</td>");
-  		print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+  		print('<td><button class="btn btn-primary btn-xs" value="delete">删除订单</button></td>');
   	    break;
   	case 4:
   		print("订单取消</td>");
-  		print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+  		print('<td><button class="btn btn-primary btn-xs" value="delete">删除订单</button></td>');
   		break;
    	case 5:
-  		print("已支付</td>");
-  		print('<td><button class="btn btn-primary btn-xs cancel">取消订单并申请退款</button></td>');
+  		print("已支付未确认</td>");
+  		print('<td><button class="btn btn-primary btn-xs cancel" value="cancelAndReturn">取消订单并退款</button></td>');
   		break;
    	case 6:
   		print("已支付并得到酒店确认</td>");
-  		print('<td><button class="btn btn-primary btn-xs cancel">取消订单并申请退款</button></td>');
+  		print('<td><button class="btn btn-primary btn-xs cancel" value="cancelAndReturn">取消订单并申请退款</button></td>');
   		break;
    	case 7:
   		print("已退款</td>");
-  		print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+  		print('<td><button class="btn btn-primary btn-xs" value="delete">删除订单</button></td>');
   		break;
     case 8:
-  		print("申请退款中</td>");
+  		print("申请退款中</td><td></td>");
   		break;
   	case 9:
   		print("酒店拒绝退款</td>");
-  		print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+  		print('<td><button class="btn btn-primary btn-xs" value="delete">删除订单</button></td>');
   		break;
     case 10:
       print("已入住</td>");
-      print('<td><button class="btn btn-primary btn-xs delete">删除订单</button></td>');
+      print('<td><button class="btn btn-primary btn-xs disabled">删除订单</button></td>');
       break;
     case 11:
       print("已离店</td>");
-      print('<td><button class="btn btn-primary btn-xs delete">删除订单</button><button class="btn btn-primary btn-xs comment">评价</button></td>');
+      print('<td><button class="btn btn-primary btn-xs" value="delete">删除订单</button><a href="/comment/'+id);
+      print('"target="_blank" class="btn btn-primary btn-xs">评价</a></td>');
+      break;
+    case 12:
+      print("未到店</td>");
+      print('<td><button class="btn btn-primary btn-xs" value="delete">删除订单</button></td>');
+      break;
+    case 13:
+      print("已离店，已评价</td>");
+      print('<td><button class="btn btn-primary btn-xs" value="delete">删除订单</button></td>');
       break;
     default:
     	print("未知</td><td></td>")

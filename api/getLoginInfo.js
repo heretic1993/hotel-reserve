@@ -2,6 +2,7 @@
 
 var User = require('../schemas').User;
 var hotelUser = require('../schemas').hotelUser;
+var Admin = require('../schemas').Admin;
 
 module.exports = function(req, res, next) {
 	if (req.session.username !== null) {
@@ -20,9 +21,9 @@ module.exports = function(req, res, next) {
 				res.jsonp(temp);
 			});
 		} else if (req.session.userType == "admin") {
-			adminUser.findById(req.session._id, 'name email icon', function(err, user) {
+			Admin.findById(req.session._id, 'name', function(err, admin) {
 				var temp = {};
-				temp.user = user;
+				temp.admin = admin;
 				temp.userType = req.session.userType;
 				res.jsonp(temp);
 			});

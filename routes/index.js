@@ -86,11 +86,19 @@ router.get('/reserve/:id', function(req, res) {
 });
 router.post('/reserve', API.makeOrder);
 
+router.get('/pay/:orderId', API.pay);
+router.post('/pay', API.successfullyPay);
+router.get('/comment/:orderId', API.comment);
+router.post('/comment', API.submitComment);
+
 router.get('/getLoginInfo', API.getLoginInfo);
 router.get('/getComment/:type', API.getComment);
 router.get('/getComment/:type/:id', API.getComment);
 router.get('/getOrder', API.getOrder);
 router.get('/fetchUserInfo/:id', API.fetchUserInfo);
 router.get('/orderManipulate/:id/:action', API.orderManipulate);
+router.get('/hotelManipulate/:id/:action', API.hotelManipulate);
+router.get('/fetchMyInfo', API.fetchMyInfo);
+
 
 module.exports = router;

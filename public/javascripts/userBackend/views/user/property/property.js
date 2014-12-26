@@ -4,7 +4,8 @@ define([
     'jquery',
     'backbone',
     'underscore',
-    'text!views/user/property/template/property.html'
+    'text!views/user/property/template/property.html',
+    'text!views/user/property/template/info.html'
 ], function($, Backbone, _, template) {
     return Backbone.View.extend({
         template: _.template(template),

@@ -7,11 +7,12 @@ define(["backbone",
         "jqueryui",
         "lib/routers/userRouter",
         "lib/routers/hotelRouter",
+        "lib/routers/adminRouter",
         "lib/api/AjaxAPI",
         "moment",
         "momentLocale"
     ],
-    function(Backbone, $, yui, uR, hR, api, moment, zhcn) {
+    function(Backbone, $, yui, uR, hR, aR, api, moment, zhcn) {
         return {
             initialize: function() {
                 moment.locale('zh-cn');
@@ -24,7 +25,7 @@ define(["backbone",
                     } else if (data.userType == "hotel") {
                         window.hotel.router = new hR();
                     } else if (data.userType == "admin") {
-
+                        window.hotel.router = new aR();
                     }
                 });
 

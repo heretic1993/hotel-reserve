@@ -1,0 +1,17 @@
+<!-- itemTempalte.html -->
+<tr>
+  <td><%= hotelName %></td>
+  <td><%= telephone %></td>
+  <td><span class="sr-only"><%= id %></span><% switch(confirm){
+  	case false:
+  	  	print("未审核</td>");
+  		print('<td><button class="btn btn-primary btn-xs" value="confirm">通过</button><button class="btn btn-danger btn-xs" value="delete">删除</button></td>');
+  		break;
+  	case true:
+  	  	print("审核通过</td>");
+  		print('<td><button class="btn btn-danger btn-xs" value="reject">收回权限</button></td>');
+  		break;
+  	default:
+  		print("未知</td><td></td>");
+  	} %>
+</tr>

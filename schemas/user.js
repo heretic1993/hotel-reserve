@@ -13,6 +13,7 @@ var UserSchema = new Schema({
 	email: String,
 	credit: Number,
 	icon: String,
+	money: Number,
 	order:[{
 		type: Schema.Types.ObjectId,
 		ref: 'Order'

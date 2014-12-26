@@ -11,8 +11,8 @@ var mongoose = require('mongoose');
 
 
 var routes = require('./routes/index');
-var hotel_routes= require('./routes/hotel');
-var admin_routes= require('./routes/admin');
+var hotel_routes = require('./routes/hotel');
+var admin_routes = require('./routes/admin');
 
 var app = express();
 
@@ -24,11 +24,8 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname,'public')));
+app.use(bodyParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 mongoose.connect('mongodb://localhost/hotel');
@@ -44,11 +41,11 @@ mongoose.connect('mongodb://localhost/hotel');
 
 
 app.use(session({
-    secret: 'aaaaaa'
+  secret: 'aaaaaa'
 }));
 
 
-app.use(function(req, res, next){
+app.use(function(req, res, next) {
   var err = req.session.error;
   var msg = req.session.success;
   delete req.session.error;
@@ -61,14 +58,14 @@ app.use(function(req, res, next){
 
 
 app.use('/', routes);
-app.use('/hotel',hotel_routes);
-app.use('/admin',admin_routes);
+app.use('/hotel', hotel_routes);
+app.use('/admin', admin_routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handlers

@@ -4,8 +4,7 @@ define([
     'jquery',
     'backbone',
     'underscore',
-    'text!views/user/property/template/property.html',
-    'text!views/user/property/template/info.html'
+    'text!views/user/property/template/property.html'
 ], function($, Backbone, _, template) {
     return Backbone.View.extend({
         template: _.template(template),
@@ -18,10 +17,14 @@ define([
         render: function() {
             $(this.el).html(this.template());
             this.parent.html(this.el);
-            //this.renderData();
+            this.renderData();
         },
         renderData: function() {
-
+            window.hotel.API.fetchMyInfo(function(data){
+                console.log(data);
+                $(".money").html(data.money);
+                $(".credit").html(data.credit);
+            })
         },
         destroy: function() {}
     })

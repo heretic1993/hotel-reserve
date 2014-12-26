@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var auth = require('../middlewares/auth.js');
 var API = require('../api');
-var signup = require('../api').signup;
+//var signup = require('../api').signup;
 var HotelUser = require('../schemas').hotelUser;
 var Hotel = require('../schemas').Hotel;
 
@@ -69,7 +69,7 @@ router.get('/signup', function(req, res) {
 	}
 });
 
-router.post('/signup', signup);
+router.post('/signup', API.signup);
 
 
 router.get('/reserve/:id', function(req, res) {
@@ -99,6 +99,6 @@ router.get('/fetchUserInfo/:id', API.fetchUserInfo);
 router.get('/orderManipulate/:id/:action', API.orderManipulate);
 router.get('/hotelManipulate/:id/:action', API.hotelManipulate);
 router.get('/fetchMyInfo', API.fetchMyInfo);
-
+router.post('/uploadImage',API.uploadImage);
 
 module.exports = router;

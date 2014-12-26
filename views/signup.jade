@@ -7,7 +7,7 @@ script(src='/javascripts/signup.js')
 .row
 .row
   div.col-md-5.col-md-offset-1
-    form(role="form",method="post",action="signup")
+    form(role="form",method="post",action="signup",enctype="multipart/form-data")
       div.form-group
         label(for="username") 用户名
         input(type="text",name="username").form-control#username.username
@@ -20,6 +20,10 @@ script(src='/javascripts/signup.js')
         label(for="password_confirm") 确认密码
         input(type="password").form-control#password_confirm.password_confirm
         span#error5.bg-warning
+      div
+        label(for="image") 头像
+        input(type="file",name="image",size="45")#icon.icon
+        span#error6.bg-warning
       div.form-group
         label(for="phonenumber") 手机号码
         input(type="text").form-control#phone.phone

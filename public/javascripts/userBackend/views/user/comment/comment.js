@@ -4,8 +4,9 @@ define([
     'jquery',
     'backbone',
     'underscore',
-    'text!views/user/comment/template/comment.html'
-], function($, Backbone, _, template) {
+    'text!views/user/comment/template/comment.html',
+    'text!views/user/comment/template/item.html'
+], function($, Backbone, _, template, itemTemplate) {
     return Backbone.View.extend({
         template: _.template(template),
         initialize: function() {
@@ -17,9 +18,15 @@ define([
         render: function() {
             $(this.el).html(this.template());
             this.parent.html(this.el);
-            //this.renderData();
+            this.renderData();
         },
         renderData: function() {
+            var commentTemplate = _.template(itemTemplate);
+            window.hotel.API.getUserComment(function(data) {
+                $(data).each(function(index, info) {
+                    $("#comment_area").append(commentTemplate(info));
+                })
+            })
 
         },
         destroy: function() {}

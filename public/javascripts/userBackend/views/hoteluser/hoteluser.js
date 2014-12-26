@@ -42,9 +42,9 @@ define([
             $(this.el).html(this.template());
         },
         renderData: function() {
-            window.hotel.API.getUserInfo(function(data) {
+            window.hotel.API.fetchHotelInfo(function(data) {
                 $("span#username").html(data.name);
-                $("span#icon").html('<img src="' + data.icon + '"></img>');
+                $("span#icon").html('<img src="' + data.main_image + '"></img>');
             });
         },
         destroy: function() {}

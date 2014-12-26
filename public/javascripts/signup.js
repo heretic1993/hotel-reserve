@@ -30,6 +30,8 @@ $(function() {
 				$(".phone").addClass("has-warning");
 			}
 
+			//var icon=
+
 			var email = new RegExp("^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})$")
 			if (email.test($("#email").val())) {
 				$("#submit_btn").attr("disabled", false);

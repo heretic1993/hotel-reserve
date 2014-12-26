@@ -1,6 +1,7 @@
 // fetchMyInfo.js
 
 var Hotel = require('../schemas').Hotel;
+var hotelUser = require('../schemas').hotelUser;
 var User = require('../schemas').User;
 var Admin = require('../schemas').Admin;
 
@@ -11,9 +12,9 @@ var fetchMyInfo = function(req, res, next) {
 			res.jsonp(user);
 		})
 	} else if (req.session.userType == 'hotel') {
-		Hotel.findById(req.session._id, "name", function(err, hotel) {
+		hotelUser.findById(req.session._id).populate('hotel').exec(function(err, info) {
 			if (err) throw err;
-			res.jsonp(hotel);
+			res.jsonp(info.hotel);
 		})
 	} else if (req.session.userType == 'admin') {
 		Admin.findById(req.session._id, "name", function(err, admin) {

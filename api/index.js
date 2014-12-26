@@ -24,6 +24,7 @@ var fetchMyInfo = require('./fetchMyInfo');
 var adminSignUp = require('./adminSignUp');
 var fetchHotelUserInfo = require('./fetchHotelUserInfo');
 var hotelManipulate = require('./hotelManipulate');
+var uploadImage = require('./uploadImage');
 
 exports.getLoginInfo = getLoginInfo;
 exports.fetchHotelInfo = fetchHotelInfo;
@@ -50,3 +51,4 @@ exports.fetchMyInfo = fetchMyInfo;
 exports.adminSignUp = adminSignUp;
 exports.fetchHotelUserInfo = fetchHotelUserInfo;
 exports.hotelManipulate = hotelManipulate;
+exports.uploadImage = uploadImage;
